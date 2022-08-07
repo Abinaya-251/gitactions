@@ -70,6 +70,6 @@ jobs:
           docker login -u abinaya251 -p Abinaya@251
       - name: Build the Docker Image
         working-directory: myapp
-        run: docker build ./myapp
+        run: docker build ./myapp -t myimage:file
       - name: Docker push
         run: docker push abinay251/golanguage:dockerfile
