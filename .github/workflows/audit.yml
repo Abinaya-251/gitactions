@@ -66,6 +66,7 @@ jobs:
         env:
           DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+          dockerfile: ./app/Dockerfile
         run: |
           docker login -u abinaya251 -p Abinaya@251
       - name: Build the Docker Image
