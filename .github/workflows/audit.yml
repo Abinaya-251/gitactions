@@ -74,5 +74,5 @@ jobs:
           docker build ./myapp -t abinaya251/myimage:golang
       - name: Docker push
         run: |
-          docker push abinaya251/alpine
+          docker push abinaya251/myimage:golang
 
