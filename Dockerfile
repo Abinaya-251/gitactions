@@ -1,10 +1,10 @@
 ROM golang:1.16.4-buster AS builder
   
-WORKDIR /Abinaya251/gitactions
+WORKDIR /gitactions
 COPY main.go .
 RUN go build -o main -ldflags=-X=main.version=${VERSION} main.go
 
 FROM debian:buster-slim
-COPY --from=builder /Abinaya251/gitactions/main /go/bin/main
+COPY --from=builder /gitactions/main /go/bin/main
 ENV PATH="/go/bin:${PATH}"
 CMD ["main"]
