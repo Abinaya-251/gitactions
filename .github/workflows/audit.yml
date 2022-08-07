@@ -66,10 +66,10 @@ jobs:
         env:
           DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-          dockerfile: ./app/Dockerfile
         run: |
           docker login -u abinaya251 -p Abinaya@251
       - name: Build the Docker Image
-        run: docker build -t myimage . -f Dockerfile.Dockerfile
+        working-directory: myapp
+        run: docker build . --file Dockerfile --tag myimage:$(date+%s)
       - name: Docker push
         run: docker push abinay251/golanguage:dockerfile
