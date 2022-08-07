@@ -1,4 +1,4 @@
-ROM golang:1.16.4-buster AS builder
+FROM golang:1.16.4-buster AS builder
   
 WORKDIR /app
 COPY main.go .
