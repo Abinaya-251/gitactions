@@ -65,7 +65,9 @@ jobs:
         docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
     - name: Update kube config
       run: aws eks update-kubeconfig --name hello-world --region us-west-1
-
+    - name: Login to Amazon EKR
+      id: login-ekr
+      uses: aws-actions/amazon-ekrlogin@v1
     - name: Deploy image to Amazon EKS
       run: |
         kubectl apply -f eks/aws-auth.yaml
