@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-world-image
-        image: 742584907009.dkr.ecr.us-east-1.amazonaws.com/hello-world:95fef05b47b0075ce529848ad9fc3c6be0650fb3
+        image: 742584907009.dkr.ecr.us-west-1.amazonaws.com/hello-world:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
