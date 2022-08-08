@@ -1,8 +1,7 @@
 name: Deploy-AWS-ECR
 on:
   push:
-    branches:
-      - main
+    branches: [release]
 jobs:
   deploy:
     name: Build image and deploy to aws ecr
@@ -60,14 +59,14 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: hello-world
         IMAGE_TAG: ${{ github.sha }}
+        
       run: |
         docker build --file ./myapp/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
         docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
+        
     - name: Update kube config
       run: aws eks update-kubeconfig --name hello-world --region us-west-1
-    - name: Login to Amazon EKR
-      id: login-ekr
-      uses: aws-actions/amazon-ekrlogin@v1
+      
     - name: Deploy image to Amazon EKS
       run: |
         kubectl apply -f eks/aws-auth.yaml
