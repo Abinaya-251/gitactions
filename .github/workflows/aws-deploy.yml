@@ -68,7 +68,7 @@ jobs:
       run: aws eks  describe-cluster --name hello-world
         
     - name: Update kube config
-      run: aws eks update-kubeconfign --region us-west-1 --name hello-world --role-arn arn:aws:iam::742584907009:role/helloworld
+      run: aws eks update-kubeconfig --region us-west-1 --name hello-world --role-arn arn:aws:iam::742584907009:role/helloworld
       
     - name: Deploy image to Amazon EKS
       run: |
