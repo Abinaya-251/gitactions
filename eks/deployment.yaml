@@ -15,7 +15,7 @@ spec:
         app: hello-world-image
     spec:
       containers:
-      - name: hello-world-image
+      - name: hello-world-image-app
         image: 742584907009.dkr.ecr.us-west-1.amazonaws.com/hello-world:latest
         imagePullPolicy: Always
         ports:
