@@ -65,7 +65,7 @@ jobs:
         docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
         
     - name: description of cluster
-      run: aws aks  describe-cluster --name hello-world
+      run: aws eks  describe-cluster --name hello-world
         
     - name: Update kube config
       run: aws eks update-kubeconfig --name hello-world --region us-west-1
