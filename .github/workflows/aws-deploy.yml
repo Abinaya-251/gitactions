@@ -1,4 +1,4 @@
-name: Deploy-AWS-ECR
+name: Deploy-AWS-ECR and EKR CLUSTER
 on:
   push:
     branches: [main]    
