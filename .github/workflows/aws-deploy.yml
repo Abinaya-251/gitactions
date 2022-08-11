@@ -1,4 +1,4 @@
-name: Deploy-AWS-ECR
+name: Deploy-AWS-ECR and EKS
 on:
   push:
     branches: [main]    
