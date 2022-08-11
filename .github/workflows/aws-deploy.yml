@@ -71,6 +71,10 @@ jobs:
       run: aws eks update-kubeconfig --region us-west-1 --name hello-world --role-arn arn:aws:iam::742584907009:role/helloworld
       
     - name: Deploy image to Amazon EKS
+      env:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-1
       run: |
         kubectl apply -f eks/aws-auth.yaml
         kubectl apply -f eks/deployment.yaml
